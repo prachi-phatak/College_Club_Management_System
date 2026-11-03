@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ClubSphere</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body class="logged-out">
+
+
+<!-- =====================================================
+     AUTHENTICATION SCREEN
+===================================================== -->
+
+<section id="authScreen" class="auth-screen">
+
+    <div class="auth-card">
+
+
+        <h1>ClubSphere</h1>
+
+        <p class="auth-subtitle">
+            College Club
+        </p>
+
+
+        <!-- LOGIN -->
+        <div id="loginBox">
+            <h2>Welcome Back</h2>
+            <p class="auth-description">
+                Sign in to manage your college clubs and activities.
+            </p>
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter your email"
+                autocomplete="email">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter your password"
+                autocomplete="current-password">
+
+            <button
+                id="loginButton"
+                class="auth-primary">
+                Sign In
+            </button>
+
+            <div
+                id="authMessage"
+                class="auth-message"></div>
+
+
+            <div class="auth-switch">
+                Don't have an account?
+
+                <button
+                    id="showRegisterBtn"
+                    type="button">
+                    Create Account
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- REGISTER -->
+        <div
+            id="registerBox"
+            style="display:none;">
+            <h2>Create Account</h2>
+            <p class="auth-description">
+                Create your ClubSphere account.
+            </p>
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Enter your full name"
+                autocomplete="name">
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter your email"
+                autocomplete="email">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Minimum 6 characters"
+                autocomplete="new-password">
+
+            <label>
+                Confirm Password
+            </label>
+
+            <input
+                type="password"
+                id="registerConfirmPassword"
+                placeholder="Confirm your password"
+                autocomplete="new-password">
+
+            <button
+                id="registerButton"
+                class="auth-primary">
+                Create Account
+            </button>
+
+            <div
+                id="registerMessage"
+                class="auth-message"></div>
+
+
+            <div class="auth-switch">
+                Already have an account?
+                <button
+                    id="showLoginBtn"
+                    type="button">
+                    Sign In
+                </button>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="application">
+
+<header class="main-header">
+    <div class="brand">
+
+        <div class="brand-text">
+            <h1>
+                ClubSphere
+            </h1>
+        </div>
+    </div>
+
+
+    <nav
+        class="main-nav"
+        id="mainNav">
+
+        <button
+            class="nav-link active"
+            data-page="home">
+            Home
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="dashboard">
+            Dashboard
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="clubs">
+            Clubs
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="members">
+            Members
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="events">
+            Events
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="memberships">
+            Memberships
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="reports">
+            Reports
+        </button>
+
+        <button
+            class="nav-link"
+            data-page="contact">
+            Contact Us
+        </button>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <span
+            id="currentUserName"
+            class="current-user"
+        ></span>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn">
+            Sign Out
+        </button>
+        <button
+            id="menuBtn"
+            class="menu-btn">
+            ☰
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+
+<!-- Home -->
+
+<section
+    id="page-home"
+    class="page active">
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                SMART COLLEGE CLUB MANAGEMENT
+            </div>
+
+            <h2>
+                Manage Your College
+                <span>Clubs Smarter</span>
+            </h2>
+
+            <p>
+                ClubSphere brings clubs, members, events
+                and memberships together in one simple
+                management system.
+            </p>
+
+            <div class="hero-actions">
+
+                <button
+                    class="hero-primary"
+                    data-page="dashboard">
+                    Go to Dashboard →
+                </button>
+
+                <button
+                    class="hero-secondary"
+                    data-page="clubs">
+                    Explore Clubs
+                </button>
+
+            </div>
+            <div class="hero-stats">
+
+                <div>
+                    <strong id="heroClubs">
+                        0
+                    </strong>
+                    <span>
+                        Clubs
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="heroMembers">
+                        0
+                    </strong>
+                    <span>
+                        Members
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="heroEvents">
+                        0
+                    </strong>
+                    <span>
+                        Upcoming Events
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="floating-card card-one">
+                <span>🏆</span>
+                <strong>Active Clubs</strong>
+                <small>Manage everything</small>
+            </div>
+
+
+            <div class="floating-card card-two">
+                <span>👥</span>
+                <strong>Members</strong>
+                <small>Track memberships</small>
+            </div>
+
+
+            <div class="floating-card card-three">
+                <span>📅</span>
+                <strong>Events</strong>
+                <small>Plan activities</small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="home-section"> 
+        <div class="section-heading">
+            <span>
+                PLATFORM OVERVIEW
+            </span>
+
+            <h2>
+                Everything in One Place
+            </h2>
+        </div>
+
+
+        <div class="feature-grid">
+            <div class="feature-card purple">
+                <div class="feature-icon">
+                    🏛️
+                </div>
+
+                <h3>
+                    Club Management
+                </h3>
+
+                <p>
+                    Create and manage college clubs,
+                    coordinators and categories.
+                </p>
+            </div>
+
+
+            <div class="feature-card blue">
+                <div class="feature-icon">
+                    👥
+                </div>
+                <h3>
+                    Member Management
+                </h3>
+                <p>
+                    Store student information and
+                    manage club participation.
+                </p>
+            </div>
+
+
+            <div class="feature-card orange">
+                <div class="feature-icon">
+                    📅
+                </div>
+                <h3>
+                    Event Management
+                </h3>
+                <p>
+                    Organize events, venues,
+                    dates and budgets.
+                </p>
+            </div>
+
+
+            <div class="feature-card teal">
+                <div class="feature-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    Membership Tracking
+                </h3>
+
+                <p>
+                    Assign members to clubs and
+                    manage their roles.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="home-stats">
+        <div>
+            <strong id="homeClubCount">
+                0
+            </strong>
+
+            <span>
+                Total Clubs
+            </span>
+        </div>
+
+
+        <div>
+            <strong id="homeMemberCount">
+                0
+            </strong>
+            <span>
+                Total Members
+            </span>
+        </div>
+
+
+        <div>
+            <strong id="homeMembershipCount">
+                0
+            </strong>
+            <span>
+                Memberships
+            </span>
+        </div>
+
+
+        <div>
+            <strong id="homeEventCount">
+                0
+            </strong>
+            <span>
+                Upcoming Events
+            </span>
+        </div>
+
+    </div>
+
+
+    <footer class="home-footer">
+        <nav class="footer-nav">
+            <button data-page="home">Home</button>
+            <button data-page="dashboard">Dashboard</button>
+            <button data-page="clubs">Clubs</button>
+            <button data-page="members">Members</button>
+            <button data-page="events">Events</button>
+            <button data-page="memberships">Memberships</button>
+            <button data-page="reports">Reports</button>
+            <button data-page="contact">Contact Us</button>
+
+        </nav>
+        <p>
+            © 2026 ClubSphere. All rights reserved.
+        </p>
+    </footer>
+</section>
+
+
+
+<!-- Dashboard -->
+
+<section
+    id="page-dashboard"
+    class="page">
+
+    <div class="page-title">
+        <div>
+            <span class="section-label">
+                OVERVIEW
+            </span>
+            <h2>
+                Dashboard
+            </h2>
+            <p>
+                Overview of your college clubs and activities.
+            </p>
+        </div>
+    </div>
+
+
+    <div
+        class="cards"
+        id="dashboardCards"></div>
+
+
+    <div class="quick-actions">
+        <span>
+            Quick Actions
+        </span>
+        <button data-page="clubs">
+            + Add Club
+        </button>
+        <button data-page="members">
+            + Add Member
+        </button>
+        <button data-page="events">
+            + Add Event
+        </button>
+        <button data-page="memberships">
+            + Assign Membership
+        </button>
+        <button data-page="reports">
+            View Reports
+        </button>
+    </div>
+
+    <div class="dashboard-grid">
+
+        <fieldset>
+            <legend>
+                Upcoming Events
+            </legend>
+
+            <div
+                class="table-wrap"
+                id="upcoming"
+            ></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Members per Club
+            </legend>
+
+            <div
+                class="table-wrap"
+                id="perClub"></div>
+
+        </fieldset>
+    </div>
+</section>
+
+
+
+<!-- Clubs -->
+
+<section
+    id="page-clubs"
+    class="page"> </section>
+
+
+
+<!-- Members -->
+
+<section
+    id="page-members"
+    class="page">
+</section>
+
+
+
+<!-- Events -->
+
+<section
+    id="page-events"
+    class="page"></section>
+
+
+
+<!-- Memberships -->
+
+<section
+    id="page-memberships"
+    class="page"></section>
+
+
+
+<!-- Reports -->
+
+<section
+    id="page-reports"
+    class="page">
+
+    <div class="page-title">
+        <div>
+            <span class="section-label">
+                ANALYTICS
+            </span>
+            <h2>
+                Reports
+            </h2>
+            <p>
+                Generate useful reports from the database.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="report-toolbar">
+        <label>
+            Select Report
+        </label>
+
+        <select id="reportPick">
+            <option value="clubMembers">
+                Members per Club
+            </option>
+            <option value="upcomingEvents">
+                Upcoming Events
+            </option>
+            <option value="memberList">
+                Member List
+            </option>
+            <option value="eventBudget">
+                Event Budget Summary
+            </option>
+            <option value="clubSummary">
+                Club Summary
+            </option>
+        </select>
+
+
+        <button
+            id="reportRun"
+            class="primary-btn">
+            Generate Report
+        </button>
+
+        <button
+            id="reportExport"
+            class="outline-btn">
+            Export CSV
+        </button>
+
+    </div>
+
+    <div
+        class="table-wrap tall report-result"
+        id="reportResult"></div>
+
+    <div
+        id="reportInfo"
+        class="status"></div>
+
+</section>
+
+<!-- Contact Us -->
+
+<section
+    id="page-contact"
+    class="page">
+
+    <div class="page-title">
+        <div>
+            <span class="section-label">
+                GET IN TOUCH
+            </span>
+            <h2>
+                Contact Us
+            </h2>
+            <p>
+                Have a question or feedback about ClubSphere? Send us a message.
+            </p>
+        </div>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h3>Reach the team</h3>
+            <div class="contact-item">
+                <strong>Email</strong>
+                <span>support@clubsphere.edu</span>
+            </div>
+            <div class="contact-item">
+                <strong>Phone</strong>
+                <span>+91 98200 00000</span>
+            </div>
+            <div class="contact-item">
+                <strong>Office</strong>
+                <span>Student Activity Centre, Main Campus</span>
+            </div>
+            <div class="contact-item">
+                <strong>Office hours</strong>
+                <span>Mon to Fri, 10:00 AM to 5:00 PM</span>
+            </div>
+        </div>
+
+
+        <form
+            id="contactForm"
+            class="contact-form"
+            novalidate>
+
+            <label for="contactName">Full Name</label>
+            <input
+                type="text"
+                id="contactName"
+                placeholder="Enter your full name"
+                autocomplete="name">
+
+            <label for="contactEmail">Email Address</label>
+            <input
+                type="email"
+                id="contactEmail"
+                placeholder="Enter your email"
+                autocomplete="email">
+
+            <label for="contactSubject">Subject</label>
+            <input
+                type="text"
+                id="contactSubject"
+                placeholder="What is this about?">
+
+            <label for="contactMessage">Message</label>
+            <textarea
+                id="contactMessage"
+                rows="6"
+                placeholder="Write your message"></textarea>
+
+            <button
+                type="submit"
+                class="contact-submit">
+                Send Message
+            </button>
+
+            <div
+                id="contactStatus"
+                class="status"></div>
+
+        </form>
+    </div>
+</section>
+</main>
+</div>
+
+
+<!-- Toast -->
+
+<div id="toast"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+</html>

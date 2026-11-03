@@ -1,0 +1,3 @@
+-- database: c:\Users\TGX-100\Desktop\JAVA\clubdb.sqlite
+
+SELECT * FROM Club;
